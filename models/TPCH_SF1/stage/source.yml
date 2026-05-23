@@ -1,28 +1,27 @@
-version: 2 
-
+version: 2
 sources:
-  - name: tpch_source
+  - name: tpch
+    description: source tpch data
     database: snowflake_sample_data
     schema: tpch_sf1
     tables:
-      - name: orders 
+      - name: orders
+        description: main order tracking table
+        
         columns:
           - name: o_orderkey
-            data_tests:
+            description: SF*1,500,000 are sparsely populated
+            data_tests: 
               - unique
               - not_null
-      
+
       - name: lineitem
+        description: main lineitem table
         columns:
           - name: l_orderkey
+            description: Foreign Key to O_ORDERKEY
             data_tests:
               - relationships:
-                  arguments:
+                  arguments: 
+                    to: source('tpch', 'orders')
                     field: o_orderkey
-                    to: "{{ source('tpch_source','orders') }}"
-              
-              
-
-
-
-

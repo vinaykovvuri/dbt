@@ -1,5 +1,0 @@
-{{ config(
-    materialized='incremental'
-    unique_key = nation_key)}}
-
-    select * from {{ ref('nation)}}

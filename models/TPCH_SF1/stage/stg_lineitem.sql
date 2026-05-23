@@ -2,6 +2,7 @@ with cte as(select * from {{ source('tpch_source','lineitem')}})
 
 select 
 {{ dbt_utils.generate_surrogate_key(['l_orderkey','l_linenumber'])}} as sk_lineitem,
+l_orderkey as orderkey,
 l_partkey as partkey,
 l_suppkey as supplykey,
 l_linenumber as linenumber,
