@@ -40,7 +40,8 @@ models:
     # Applies to all files under models/example/
     example:
       +materialized: table
- 
-  staging:
-    +database: sample_db
-    +schema: public
+  
+    new_dbt:
+      staging:
+        +database: sample_db
+        +schema: public
