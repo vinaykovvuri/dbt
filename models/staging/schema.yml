@@ -1,0 +1,50 @@
+version: 2
+
+models:
+  - name: customer
+    columns:
+      - name: customer_id
+        data_tests:
+          - unique
+          - not_null
+      - name: customer_name
+        data_tests:
+          - not_null
+
+  - name: products
+    columns:
+      - name: product_id
+        data_tests:
+          - unique
+          - not_null
+          
+  - name: orders
+    columns:
+      - name: order_id
+        data_tests:
+          - unique
+          - not_null
+      - name: customer_id
+        data_tests:
+          - relationships:
+              arguments:
+                to: source('dbt_pro_1','raw_customers')
+                field: customer_id
+          
+      - name : product_id
+        data_tests:
+          - relationships:
+              arguments:
+                to: source('dbt_pro_1','raw_products')
+                field: product_id
+
+
+  - name: payments
+    columns:
+      - name: payment_id
+        data_tests:
+          - unique
+          - not_null
+          
+
+
