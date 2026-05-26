@@ -41,3 +41,6 @@ models:
     example:
       +materialized: table
  
+  staging:
+    +database: sample_db
+    +schema: public
