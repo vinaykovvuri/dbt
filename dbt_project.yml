@@ -40,11 +40,4 @@ models:
     # Applies to all files under models/example/
     example:
       +materialized: table
-  customers:
-    staging:
-      +database: dbt_customer
-      +schema: stage_layer 
-    
-    marts:
-      +database: dbt_customer
-      +schema: golden_layer
+ 
