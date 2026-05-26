@@ -45,3 +45,9 @@ models:
       staging:
         +database: sample_db
         +schema: public
+
+      intermediate:
+        +database: sample_db
+        +schema: public
+
+
