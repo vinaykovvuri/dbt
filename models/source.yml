@@ -9,4 +9,12 @@ sources:
       - name: raw_orders
       - name: raw_products
       - name: raw_payments
-      
+
+  - name: db_source
+    database: dv_db
+    schema: raw_layer
+    tables:
+      - name: raw_customer
+      - name: raw_orders
+      - name: raw_products
+      - name: raw_order_items
