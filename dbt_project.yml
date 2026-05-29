@@ -43,11 +43,21 @@ models:
   
     new_dbt:
       staging:
+        
         +database: sample_db
         +schema: public
 
       intermediate:
         +database: sample_db
         +schema: public
+    
+    dv_pro:
+      staging:
+        +database: dv_db
+        +schema: staging
 
-
+      raw_vault:
+        +database: dv_db
+        +schema: raw_vault
+          
+    
